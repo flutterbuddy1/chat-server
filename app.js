@@ -30,8 +30,8 @@ io.on("connection", socket => {
     socket.on("join", (data) => {
         console.log("User :",data,"Joined");
         if(!clients[data]){
-        clients[data] = socket;
-        socket.emit("joined", data);
+            clients[data] = socket;
+            socket.emit("joined", data);
         }
     });
     socket.on("message", (data) => {
@@ -39,7 +39,7 @@ io.on("connection", socket => {
         if(clients[data.id]){
             clients[data.id].emit("message", data);
         }
-        socket.emit("message",data);
+        // socket.emit("message",data);
     });
 
     socket.on("disconnect",(data)=>{
