@@ -39,7 +39,7 @@ io.on("connection", socket => {
         if(clients[data.id]){
             clients[data.id].emit("message", data);
         }
-        // socket.emit("message",data);
+        socket.emit("message",data);
     });
 
     socket.on("disconnect",(data)=>{
