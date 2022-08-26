@@ -39,6 +39,10 @@ io.on("connection", socket => {
         }
         socket.emit("message",data);
     });
+
+    socket.on("disconnect",(data)=>{
+        delete clients[data];
+    });
 });
 
 app.get("/",(res,req)=>{
