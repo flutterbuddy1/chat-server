@@ -29,8 +29,10 @@ io.on("connection", socket => {
     socket.emit("connected", socket.id);
     socket.on("join", (data) => {
         console.log("User :",data,"Joined");
+        if(!clients[data]){
         clients[data] = socket;
         socket.emit("joined", data);
+        }
     });
     socket.on("message", (data) => {
         console.log(data);
